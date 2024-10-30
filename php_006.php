@@ -1,5 +1,5 @@
 <?php
-   // define("CIUDAD", "Madrid"); //La vble ciudad tendrá el valor Madrid.
+   // define("CIUDAD", "Madrid"); 
     if (defined("CIUDAD")){
         print("La ciudad es:". CIUDAD);
     } else{

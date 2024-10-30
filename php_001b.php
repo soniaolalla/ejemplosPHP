@@ -36,7 +36,7 @@
     echo'<h1>';
     echo $edad;
     print('</h1>');
-    $nombre = "Sonia";
+    $nombre = "Sonia"; //asignamos "Sonia" a la vble nombre.
     print($nombre);
 ?>
 
