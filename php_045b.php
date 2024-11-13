@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         table{ width: 60%; margin: auto; border-collapse: collapse;}
-        th, td { border: 1px solid black; paddin:8px; text-align: center;}
+        th, td { border: 1px solid black; padding:8px; text-align: center;}
         th { background-color: #f2f2f2;}
     </style>
 </head>
@@ -44,10 +44,6 @@
         </tr>
         <?php }; ?> <!-- cierro el foreach -->
 
-    </table>
-       
-       
-          
-
+    </table>    
 </body>
 </html>
