@@ -1,49 +1,57 @@
-<!--Se necesita almacenar las notas de IAW, ASGBD y SAD de varios estudiantes de ASIR. Crea la estructura necesaria e imprime el resultado y la nota media de cada alumno en una tabla -->
+<!--Arrays multidimensionales: Son arrays cuyos componenetes es otro array. Cada clave tendrá otro array como valor. 
+-->
+<!--Se necesita gestionar las notas de varios estudiantes en tres asignaturas: matemáticas, lengua e historia. --> 
+<!-- SOLUCIÓN:  crear un array asociativo donde la clave sea el nombre del estudiante -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Notas de Estudiantes</title>
     <style>
-        table{ width: 60%; margin: auto; border-collapse: collapse;}
-        th, td { border: 1px solid black; padding:8px; text-align: center;}
-        th { background-color: #f2f2f2;}
+        table { border-collapse: collapse; width: 60%; margin: auto; }
+        th, td { border: 1px solid black; padding: 8px; text-align: center; }
+        th { background-color: #f2f2f2; }
     </style>
 </head>
 <body>
-    <h2>Notas de alumnos de ASIR</h2>
+    <h2 style="text-align: center;">Notas de Estudiantes</h2>
+    
     <?php
-        $alumnos = [
-            "Carlos" => ["IAW" => 5, "ASGBD" => 6, "SAD" => 3],
-            "Pepe" => ["IAW" => 9, "ASGBD" => 2, "SAD" => 1],
-            "Marta" => ["IAW" => 3, "ASGBD" => 6, "SAD" => 1],
-            "Ana" => ["IAW" => 9, "ASGBD" => 9, "SAD" => 9]
-        ];
+    // Array asociativo con las notas de estudiantes
+    $estudiantes = [
+        "Carlos" => ["Matemáticas" => 8, "Lengua" => 7, "Historia" => 9],
+        "Marta" => ["Matemáticas" => 6, "Lengua" => 9, "Historia" => 8],
+        "Luis" => ["Matemáticas" => 5, "Lengua" => 6, "Historia" => 7],
+        "Ana" => ["Matemáticas" => 10, "Lengua" => 8, "Historia" => 9]
+    ];
     ?>
+
     <table>
         <tr>
-            <th>Alumno</th>
-            <th>IAW</th>
-            <th>ASGBD</th>
-            <th>SAD</th>
-            <th>Media</th>
+            <th>Estudiante</th>
+            <th>Matemáticas</th>
+            <th>Lengua</th>
+            <th>Historia</th>
+            <th>Promedio</th>
         </tr>
-        <?php foreach($alumnos as $nombre => $notas){?>
-        <tr>
-            <td><?php echo $nombre; ?></td>
-            <td><?php echo $notas["IAW"]; ?></td>
-            <td><?php echo $notas["ASGBD"]; ?></td>
-            <td><?php echo $notas["SAD"]; ?></td>
-            <td> <!--nota media-->
-                <?php
-                    $promedio = array_sum($notas)/count($notas);
-                    echo number_format($promedio,2);//formateamos a 2 decimales
-                ?>
-            </td>
-        </tr>
-        <?php }; ?> <!-- cierro el foreach -->
+        <?php foreach ($estudiantes as $nombre => $notas): ?>
+            <tr>
+                
+                <td><?php echo $nombre; ?></td>
+                <td><?php echo $notas["Matemáticas"]; ?></td>
+                <td><?php echo $notas["Lengua"]; ?></td>
 
-    </table>    
+                <td><?php echo $notas["Historia"]; ?></td>
+                <td>
+                    <?php
+                    // Calcular el promedio
+                    $promedio = array_sum($notas) / count($notas);
+                    echo number_format($promedio, 2); // Mostrar con dos decimales
+                    ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
 </body>
 </html>
